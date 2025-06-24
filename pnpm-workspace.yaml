@@ -1,0 +1,4 @@
+packages:
+  - 'packages/fincode-mcp-api'
+  - 'packages/fincode-mcp-core'
+  - 'packages/fincode-mcp-docs'

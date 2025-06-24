@@ -1,0 +1,51 @@
+{
+  "name": "fincode-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for fincode MCP (Model Context Protocol) integration",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r build",
+    "build:dev": "pnpm -r build:dev",
+    "build:prd": "pnpm -r build:prd",
+    "build:prd:core": "pnpm --filter @fincode/mcp-core build:prd",
+    "build:prd:app": "pnpm --filter @fincode/mcp-api --filter @fincode/mcp-docs build:prd",
+    "build:core": "pnpm --filter @fincode/mcp-core build",
+    "build:api": "pnpm --filter @fincode/mcp-api build",
+    "build:docs": "pnpm --filter @fincode/mcp-docs build",
+    "build:sequential": "pnpm build:core && pnpm test:core && pnpm build:api && pnpm build:docs",
+    "build:bundle": "pnpm build:core && pnpm --filter @fincode/mcp-api --filter @fincode/mcp-docs build:bundle",
+    "build:bundle:prd": "pnpm build:prd:core && pnpm --filter @fincode/mcp-api --filter @fincode/mcp-docs build:bundle:prd",
+    "build:bundle:watch": "pnpm build:core && pnpm --filter @fincode/mcp-api --filter @fincode/mcp-docs build:bundle:watch",
+    "ci": "pnpm build:sequential && pnpm test",
+    "test:watch": "pnpm -r test:watch",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format",
+    "check": "pnpm -r check",
+    "fix": "pnpm -r fix",
+    "clean": "pnpm -r clean",
+    "reset": "pnpm -r clean && pnpm -r reset && rm -rf node_modules && rm -rf pnpm-lock.yaml",
+    "mcp:dev": "pnpm install && pnpm build:bundle"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.4",
+    "@types/node": "22.15.32",
+    "husky": "9.1.7",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digirise-inc/fincode-mcp-core.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digirise-inc/fincode-mcp-core/issues"
+  },
+  "homepage": "https://github.com/digirise-inc/fincode-mcp-core#readme"
+}

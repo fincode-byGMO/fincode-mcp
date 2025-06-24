@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.prd.lib.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declarationDir": "./dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["tests/**/*", "dist/**/*", "node_modules/**/*"]
+}

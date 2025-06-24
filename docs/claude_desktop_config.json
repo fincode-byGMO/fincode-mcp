@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "Fincode-Mcp-Api": {
+      "command": "node",
+      "args": [
+        "$WD/fincode-mcp/packages/fincode-mcp-api/dist/index.bundled.js",
+        "--isLiveMode=false"
+      ],
+      "env": {
+        "PATH": "NODE_PATH",
+        "FINCODE_API_KEY": "FINCODE_API_KEY"
+      }
+    },
+    "Fincode-Mcp-Docs": {
+      "command": "node",
+      "args": [
+        "$WD/fincode-mcp/packages/fincode-mcp-docs/dist/index.bundled.js"
+      ],
+      "env": {
+        "PATH": "NODE_PATH"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "incremental": false,
+    "composite": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true
+  },
+  "exclude": ["dist", "node_modules", "tests", "**/*.test.ts", "**/*.spec.ts"]
+}
