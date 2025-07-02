@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "MCP server for fincode API docs",
   "author": {
-    "name": "Anthropic",
+    "name": "GMO Epsilon, Inc.",
     "url": "https://www.fincode.jp"
   },
   "homepage": "https://www.fincode.jp",
@@ -36,7 +36,10 @@
     }
   ],
   "keywords": [
-    "fincode"
+    "fincode",
+    "fincodebygmo",
+    "gmo",
+    "gmoepsilon"
   ],
   "license": "MIT",
   "compatibility": {

@@ -1,10 +1,10 @@
 {
-  "dxt_version": "1.0.0",
+  "dxt_version": "0.1",
   "name": "@fincode/mcp-api",
   "version": "1.0.0",
   "description": "MCP server for fincode API integration",
   "author": {
-    "name": "fincode",
+    "name": "GMO Epsilon, Inc.",
     "url": "https://www.fincode.jp"
   },
   "homepage": "https://www.fincode.jp",
@@ -32,21 +32,24 @@
     }
   ],
   "keywords": [
-    "fincode"
+    "fincode",
+    "fincodebygmo",
+    "gmo",
+    "gmoepsilon"
   ],
   "license": "MIT",
   "user_config": {
     "api_key": {
       "type": "string",
       "title": "fincode api key",
-      "description": "fincode api key",
+      "description": "fincodeのAPIキーをセットします。APIキーはfincodeの管理画面から取得できます。",
       "sensitive": true,
       "required": true
     },
     "live_mode": {
       "type": "boolean",
       "title": "fincode api live mode",
-      "description": "fincode api live mode",
+      "description": "fincodeのAPIを本番環境で使用するかどうかを設定します。本番環境(true)では実際の決済が行われます。テスト環境(false)ではテスト用の決済が行われます。",
       "sensitive": false,
       "required": false
     }
