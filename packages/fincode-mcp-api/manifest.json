@@ -1,0 +1,61 @@
+{
+  "dxt_version": "1.0.0",
+  "name": "@fincode/mcp-api",
+  "version": "1.0.0",
+  "description": "MCP server for fincode API integration",
+  "author": {
+    "name": "fincode",
+    "url": "https://www.fincode.jp"
+  },
+  "homepage": "https://www.fincode.jp",
+  "documentation": "https://www.fincode.jp",
+  "support": "https://www.fincode.jp",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.bundled.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/dist/index.bundled.js"
+      ],
+      "env": {
+        "FINCODE_API_KEY": "${user_config.api_key}",
+        "FINCODE_API_LIVE_MODE": "${user_config.live_mode}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "Call-CreatePaymentUrl-API",
+      "description": "fincode APIが提供するリダイレクト型決済URLを作成するAPIを呼び出します。"
+    }
+  ],
+  "keywords": [
+    "fincode"
+  ],
+  "license": "MIT",
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "fincode api key",
+      "description": "fincode api key",
+      "sensitive": true,
+      "required": true
+    },
+    "live_mode": {
+      "type": "boolean",
+      "title": "fincode api live mode",
+      "description": "fincode api live mode",
+      "sensitive": false,
+      "required": false
+    }
+  },
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=22.0.0"
+    }
+  }
+}

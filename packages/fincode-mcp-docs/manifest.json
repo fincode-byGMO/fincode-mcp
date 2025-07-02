@@ -1,0 +1,49 @@
+{
+  "dxt_version": "0.1",
+  "name": "@fincode/mcp-docs",
+  "version": "1.0.0",
+  "description": "MCP server for fincode API docs",
+  "author": {
+    "name": "Anthropic",
+    "url": "https://www.fincode.jp"
+  },
+  "homepage": "https://www.fincode.jp",
+  "documentation": "https://www.fincode.jp",
+  "support": "https://www.fincode.jp",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.bundled.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/dist/index.bundled.js"
+      ],
+      "env": {
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "Get-CreatePaymentUrl-Docs",
+      "description": "fincode APIの決済URL作成のエンドポイントのドキュメントを提供します。"
+    }
+  ],
+  "resources": [
+    {
+      "name": "ドキュメント:決済URL作成",
+      "text": "fincode APIの決済URL作成のエンドポイントのドキュメントです。"
+    }
+  ],
+  "keywords": [
+    "fincode"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=16.0.0"
+    }
+  }
+}
