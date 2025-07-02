@@ -6,6 +6,6 @@ export class FincodeDocsCreatePaymentUrlMcpTool extends FincodeDocsMcpToolBase {
     readonly name = this.text('Get-CreatePaymentUrl-Docs');
 
     readonly description = this.text(`
-        Fincode APIの決済URL作成のエンドポイントのドキュメントを提供します。
+        fincode apiの決済URL作成のエンドポイントのドキュメントを提供します。
     `);
 }

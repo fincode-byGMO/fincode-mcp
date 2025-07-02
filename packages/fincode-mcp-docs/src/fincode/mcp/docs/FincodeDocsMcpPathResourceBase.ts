@@ -16,7 +16,7 @@ export abstract class FincodeDocsMcpPathResourceBase extends FincodeDocsMcpResou
             const tags = this.searchService.tags();
             const response = JSON.stringify([
                 {
-                    description: 'Fincode APIのエンドポイントの共通の仕様',
+                    description: 'fincode apiのエンドポイントの共通の仕様',
                     docs: tags,
                 },
                 {

@@ -6,7 +6,7 @@ export class FincodeDocsCreatePaymentUrlMcpResource extends FincodeDocsMcpPathRe
     readonly name = this.text('ドキュメント:決済URL作成');
 
     readonly description = this.text(`
-        Fincode APIの決済URL作成のエンドポイントのドキュメントです。
+        fincode apiの決済URL作成のエンドポイントのドキュメントです。
     `);
 
     readonly mimeType = this.text('application/json');

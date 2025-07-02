@@ -34,3 +34,13 @@ coverage/
 .cache/
 tmp/
 temp/
+
+# DXT
+*.dxt
+
+# MCP
+.mcp.json
+
+# claude
+.claude/
+CLAUDE.md

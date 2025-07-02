@@ -9,7 +9,7 @@ export abstract class FincodeApiMcpToolBase<Input extends z.ZodTypeAny> extends 
 
     async run(args: z.infer<Input>) {
         if (this.apiConfig === undefined) {
-            throw this.newMcpError(ErrorCode.InvalidRequest, 'Fincode API key is not set');
+            throw this.newMcpError(ErrorCode.InvalidRequest, 'fincode API key is not set');
         }
         try {
             const result = await this.call(args);
