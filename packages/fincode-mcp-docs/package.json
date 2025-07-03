@@ -15,24 +15,24 @@
     "README.md"
   ],
   "scripts": {
-    "prepare": "mkdir -p dist && cp fincode-openapi.yml dist",
-    "build": "pnpm run prepare && tsc",
-    "build:dev": "pnpm run prepare && tsc",
-    "build:prd": "pnpm run prepare && tsc -p tsconfig.prd.json",
-    "build:bundle": "pnpm run prepare && node esbuild.config.js",
-    "build:bundle:prd": "pnpm run prepare && NODE_ENV=production node esbuild.config.js && cp fincode-openapi.yml dist",
-    "build:watch": "pnpm run prepare && tsc -b --watch --preserveWatchOutput",
+    "build": "tsc",
+    "build:dev": "tsc -p tsconfig.json",
+    "build:prd": "tsc -p tsconfig.prd.json",
+    "build:bundle": "node esbuild.config.js",
+    "build:bundle:prd": "cross-env NODE_ENV=production node esbuild.config.js",
+    "build:watch": "tsc -b --watch --preserveWatchOutput",
     "clean": "rm -rf dist *.tsbuildinfo",
     "lint": "biome lint .",
     "format": "biome format --write .",
     "check": "biome check .",
     "fix": "biome check --write .",
     "reset": "pnpm run clean && rm -rf node_modules && rm -rf *.dxt",
-    "dxt:pack": "dxt pack"
+    "dxt:pack": "dxt pack",
+    "build:dxt": "dxt pack"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "7.3.4",
-    "@fincode/mcp-core": "^1.0.0",
+    "@fincode/mcp-core": "workspace:*",
     "@fincode/node": "1.1.0",
     "@modelcontextprotocol/sdk": "1.13.0",
     "openapi-types": "12.1.3",
