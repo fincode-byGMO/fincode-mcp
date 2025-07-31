@@ -80,10 +80,10 @@ pnpm build:bundle:prd
 }
 ```
 
-**注意：** `PATH` は省略可能です。
-**注意：** `FINCODE_API_KEY` を実際のAPIキーに置き換えてください。
-**注意：** `FINCODE_API_LIVE_MODE` は`false`の場合はfincodeテスト環境(`api.test.fincode.jp`)、`true`の場合はfincode本番環境でAPIを実行します。デフォルトは`false`です。
-**注意：** `FINCODE_API_PROXY` は必要に応じてプロキシのURLを指定してください。プロキシを使用しない場合は省略可能です。
+**注意：** `PATH` は省略可能です。  
+**注意：** `FINCODE_API_KEY` を実際のAPIキーに置き換えてください。  
+**注意：** `FINCODE_API_LIVE_MODE` は`false`の場合はfincodeテスト環境(`api.test.fincode.jp`)、`true`の場合はfincode本番環境でAPIを実行します。デフォルトは`false`です。  
+**注意：** `FINCODE_API_PROXY` は必要に応じてプロキシのURLを指定してください。プロキシを使用しない場合は省略可能です。  
 **注意：** `args` のパスは、実際のプロジェクトのパスに合わせて調整してください。
 
 ### VSCode
