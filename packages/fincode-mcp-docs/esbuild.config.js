@@ -1,5 +1,7 @@
 /** biome-ignore-all lint/suspicious/noConsole: config */
 import { build } from 'esbuild';
+import { mkdir, copyFile } from 'fs/promises';
+import { existsSync } from 'fs';
 
 const options = {
     entryPoints: ['src/index.ts'],
@@ -33,8 +35,19 @@ const options = {
     ],
 };
 
-build(options)
-    .then((result) => {
+async function buildWithCopy() {
+    try {
+        // distディレクトリを作成（存在しない場合）
+        if (!existsSync('dist')) {
+            await mkdir('dist', { recursive: true });
+        }
+
+        // esbuildでビルド実行
+        const result = await build(options);
+
+        // fincode-openapi.ymlをdistにコピー
+        await copyFile('fincode-openapi.yml', 'dist/fincode-openapi.yml');
+
         if (result.metafile) {
             console.log('Build completed successfully');
             console.log(
@@ -43,5 +56,11 @@ build(options)
                 'bytes'
             );
         }
-    })
-    .catch(() => process.exit(1));
+        console.log('fincode-openapi.yml copied to dist/');
+    } catch (error) {
+        console.error('Build failed:', error);
+        process.exit(1);
+    }
+}
+
+buildWithCopy();

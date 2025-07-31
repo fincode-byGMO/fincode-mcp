@@ -5,33 +5,34 @@
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
-    "fincode-mcp-api": "./dist/index.js"
+    "fincode-mcp-api": "./dist/index.bundled.js"
   },
   "exports": {
     ".": "./dist/index.js"
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "package.json"
   ],
   "scripts": {
     "build": "tsc",
     "build:dev": "tsc",
     "build:prd": "tsc -p tsconfig.prd.json",
     "build:bundle": "node esbuild.config.js",
-    "build:bundle:prd": "NODE_ENV=production node esbuild.config.js",
+    "build:bundle:prd": "cross-env NODE_ENV=production node esbuild.config.js",
     "build:watch": "tsc -b --watch --preserveWatchOutput",
+    "build:dxt": "dxt pack",
     "clean": "rm -rf dist *.tsbuildinfo",
     "lint": "biome lint .",
     "format": "biome format --write .",
     "check": "biome check .",
     "fix": "biome check --write .",
-    "reset": "pnpm run clean && rm -rf node_modules && rm -rf *.dxt",
-    "dxt:pack": "dxt pack"
+    "reset": "pnpm run clean && rm -rf node_modules && rm -rf *.dxt"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "7.3.4",
-    "@fincode/mcp-core": "1.0.0",
+    "@fincode/mcp-core": "workspace:*",
     "@fincode/node": "1.1.0",
     "@modelcontextprotocol/sdk": "1.13.0",
     "openapi-types": "12.1.3",
@@ -55,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/digirise-inc/fincode-mcp-core.git",
+    "url": "https://github.com/fincode-byGMO/fincode-mcp.git",
     "directory": "packages/fincode-mcp-api"
   },
   "keywords": [
@@ -68,7 +69,7 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/digirise-inc/fincode-mcp-core/issues"
+    "url": "https://github.com/fincode-byGMO/fincode-mcp/issues"
   },
-  "homepage": "https://github.com/digirise-inc/fincode-mcp-core/tree/main/packages/fincode-mcp-api#readme"
+  "homepage": "https://github.com/fincode-byGMO/fincode-mcp/tree/main/README.md"
 }

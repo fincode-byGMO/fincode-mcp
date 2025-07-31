@@ -8,21 +8,24 @@
     "build": "pnpm -r build",
     "build:prd": "pnpm -r build:prd",
     "build:bundle:prd": "pnpm --filter @fincode/mcp-core build:prd && pnpm --filter @fincode/mcp-api --filter @fincode/mcp-docs build:bundle:prd",
+    "build:api": "pnpm --filter @fincode/mcp-core build:prd && pnpm --filter @fincode/mcp-api build:bundle:prd",
     "build:watch:core": "pnpm --filter @fincode/mcp-core build:watch",
     "build:watch:api": "pnpm --filter @fincode/mcp-api build:watch",
     "build:watch:docs": "pnpm --filter @fincode/mcp-docs build:watch",
+    "build:dxt": "pnpm build:bundle:prd && pnpm --filter @fincode/mcp-api --filter @fincode/mcp-docs build:dxt",
     "lint": "pnpm -r lint",
     "format": "pnpm -r format",
     "check": "pnpm -r check",
     "fix": "pnpm -r fix",
     "clean": "pnpm -r clean",
     "reset": "pnpm -r clean && pnpm -r reset && rm -rf node_modules",
-    "mcp:dev": "pnpm install && pnpm build:bundle:prd",
-    "mcp:dxt:pack": "pnpm install && pnpm build:bundle:prd && pnpm --filter @fincode/mcp-api --filter @fincode/mcp-docs dxt:pack"
+    "mcp:dev": "pnpm install && pnpm build:bundle:prd"
   },
   "devDependencies": {
+    "@anthropic-ai/dxt": "^0.2.0",
     "@biomejs/biome": "2.0.4",
     "@types/node": "22.15.32",
+    "cross-env": "^7.0.3",
     "husky": "9.1.7",
     "typescript": "5.8.3"
   },
@@ -33,12 +36,12 @@
   "packageManager": "pnpm@8.15.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/digirise-inc/fincode-mcp-core.git"
+    "url": "https://github.com/fincode-byGMO/fincode-mcp.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/digirise-inc/fincode-mcp-core/issues"
+    "url": "https://github.com/fincode-byGMO/fincode-mcp/issues"
   },
-  "homepage": "https://github.com/digirise-inc/fincode-mcp-core#readme"
+  "homepage": "https://github.com/fincode-byGMO/fincode-mcp/tree/main/README.md"
 }
