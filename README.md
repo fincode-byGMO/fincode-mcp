@@ -10,8 +10,11 @@
 - **fincode-mcp-api**
   - fincodeのAPIを直接呼び出すためのMCPサーバー
   - 決済URL作成API実行ツール `Call-CreatePaymentUrl-API` を提供
+    - `Call-CreatePaymentUrl-API` は、fincodeの決済URL作成APIを実行することができます。
+    これにより、fincodeのリダイレクト型決済で必要な決済URLを生成し、ユーザーに提供することが可能です。
 - **fincode-mcp-docs**
-  - fincodeのOpenAPI仕様をベースにAPI仕様を回答するMCPサーバー
+  - fincodeのOpenAPI SpecをベースにAPI仕様を回答するMCPサーバー
+  現在は決済URL作成APIについての仕様を提供しています。
   - 決済URL作成APIについて回答するツール `Get-CreatePaymentUrl-Docs` を提供
 
 ## 前提条件
@@ -19,9 +22,7 @@
 - Node.js v22以上
 - pnpm v8.0.0以上
 
-## セットアップ手順(2025年07月03日時点)
-今回提供したファイルには、ビルド済みファイルをセットしています。
-そのため、インストールとビルド手順はしなくてもMCPサーバーの設定は可能です。
+## セットアップ手順
 
 ### Claude DesktopやVSCodeで必要なファイル
 
@@ -62,7 +63,8 @@ pnpm build:bundle:prd
       "env": {
         "PATH": "NODE_PATH",
         "FINCODE_API_KEY": "YOUR_FINCODE_API_KEY",
-        "FINCODE_API_LIVE_MODE": "false"
+        "FINCODE_API_LIVE_MODE": "false",
+        "FINCODE_API_PROXY": "YOUR_PROXY_URL"
       }
     },
     "fincode-mcp-docs": {
@@ -81,6 +83,7 @@ pnpm build:bundle:prd
 **注意：** `PATH` は省略可能です。
 **注意：** `FINCODE_API_KEY` を実際のAPIキーに置き換えてください。
 **注意：** `FINCODE_API_LIVE_MODE` は`false`の場合はfincodeテスト環境(`api.test.fincode.jp`)、`true`の場合はfincode本番環境でAPIを実行します。デフォルトは`false`です。
+**注意：** `FINCODE_API_PROXY` は必要に応じてプロキシのURLを指定してください。プロキシを使用しない場合は省略可能です。
 **注意：** `args` のパスは、実際のプロジェクトのパスに合わせて調整してください。
 
 ### VSCode
@@ -98,7 +101,8 @@ pnpm build:bundle:prd
       "env": {
         "PATH": "NODE_PATH",
         "FINCODE_API_KEY": "YOUR_FINCODE_API_KEY",
-        "FINCODE_API_LIVE_MODE": "false"
+        "FINCODE_API_LIVE_MODE": "false",
+        "FINCODE_API_PROXY": "YOUR_PROXY_URL"
       }
     },
     "fincode-mcp-docs": {

@@ -9,10 +9,14 @@ export class FincodeAPIConfigService {
         if (apiKey === undefined) {
             throw new Error('env.FINCODE_API_KEY is not set');
         }
-        
+
+        const proxy = process.env.FINCODE_API_PROXY || process.env.HTTP_PROXY || process.env.HTTPS_PROXY;
         return {
             apiKey: apiKey,
             isLiveMode: isLiveMode,
+            options: {
+                proxyAgent: proxy,
+            }
         };
     }
 }
