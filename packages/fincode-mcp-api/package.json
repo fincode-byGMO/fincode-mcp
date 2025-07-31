@@ -5,14 +5,15 @@
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
-    "fincode-mcp-api": "./dist/index.js"
+    "fincode-mcp-api": "./dist/index.bundled.js"
   },
   "exports": {
     ".": "./dist/index.js"
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "package.json"
   ],
   "scripts": {
     "build": "tsc",
@@ -55,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/digirise-inc/fincode-mcp-core.git",
+    "url": "https://github.com/fincode-byGMO/fincode-mcp.git",
     "directory": "packages/fincode-mcp-api"
   },
   "keywords": [
@@ -68,7 +69,7 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/digirise-inc/fincode-mcp-core/issues"
+    "url": "https://github.com/fincode-byGMO/fincode-mcp/issues"
   },
-  "homepage": "https://github.com/digirise-inc/fincode-mcp-core/tree/main/packages/fincode-mcp-api#readme"
+  "homepage": "https://github.com/fincode-byGMO/fincode-mcp/tree/main/README.md"
 }
