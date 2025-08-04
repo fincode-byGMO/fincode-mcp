@@ -1,12 +1,10 @@
 
-# Fincode MCP Server
+# fincode MCP Server
 
 ## 概要
+このプロジェクトは、[fincode API](https://docs.fincode.jp/api)をModel Context Protocol (MCP) サーバーとして利用できるようにするためのツールを提供します。
 
-このプロジェクトは、fincode APIをModel Context Protocol (MCP) サーバーとして利用できるようにするためのパッケージ群です。
-
-### 提供パッケージ
-
+### 主な機能
 - **fincode-mcp-api**
   - fincodeのAPIを直接呼び出すためのMCPサーバー
   - 決済URL作成API実行ツール `Call-CreatePaymentUrl-API` を提供
@@ -18,14 +16,12 @@
   - 決済URL作成APIについて回答するツール `Get-CreatePaymentUrl-Docs` を提供
 
 ## 前提条件
-
 - Node.js v22以上
 - pnpm v8.0.0以上
 
 ## セットアップ手順
 
 ### Claude DesktopやVSCodeで必要なファイル
-
 - `fincode-mcp/packages/fincode-mcp-api/dist/index.bundled.js"`
 - `fincode-mcp/packages/fincode-mcp-docs/dist/index.bundled.js"`
 
@@ -49,9 +45,38 @@ pnpm build:bundle:prd
 ## MCPサーバーの設定
 
 ### Claude Desktop
-
 `claude_desktop_config.json` ファイルを以下の内容で編集してください：
 
+#### npxを利用してインストールする場合
+```json
+{
+  "mcpServers": {
+    "fincode-mcp-api": {
+      "command": "npx",
+      "args": [
+        "fincode-mcp-api",
+      ],
+      "env": {
+        "PATH": "NODE_PATH",
+        "FINCODE_API_KEY": "YOUR_FINCODE_API_KEY",
+        "FINCODE_API_LIVE_MODE": "false",
+        "FINCODE_API_PROXY": "YOUR_PROXY_URL"
+      }
+    },
+    "fincode-mcp-docs": {
+      "command": "npx",
+      "args": [
+        "fincode-mcp-docs"
+      ],
+      "env": {
+        "PATH": "NODE_PATH"
+      }
+    }
+  }
+}
+```
+
+#### ローカル環境でビルドしてからインストールする場合
 ```json
 {
   "mcpServers": {
@@ -87,9 +112,38 @@ pnpm build:bundle:prd
 **注意：** `args` のパスは、実際のプロジェクトのパスに合わせて調整してください。
 
 ### VSCode
-
 `.vscode/mcp.json` ファイルを以下の内容で編集してください：
 
+#### npxを利用してインストールする場合
+```json
+{
+  "servers": {
+    "fincode-mcp-api": {
+      "command": "npx",
+      "args": [
+        "fincode-mcp-api",
+      ],
+      "env": {
+        "PATH": "NODE_PATH",
+        "FINCODE_API_KEY": "YOUR_FINCODE_API_KEY",
+        "FINCODE_API_LIVE_MODE": "false",
+        "FINCODE_API_PROXY": "YOUR_PROXY_URL"
+      }
+    },
+    "fincode-mcp-docs": {
+      "command": "node",
+      "args": [
+        "$WD/fincode-mcp/packages/fincode-mcp-docs/dist/index.bundled.js"
+      ],
+      "env": {
+        "PATH": "NODE_PATH"
+      }
+    }
+  }
+}
+```
+
+#### ローカル環境でビルドしてからインストールする場合
 ```json
 {
   "servers": {
@@ -119,7 +173,6 @@ pnpm build:bundle:prd
 ```
 
 #### Claude Desktopの拡張機能(dxt形式)としてインストールする場合
-
 以下の手順でdxt形式の拡張機能を生成し、Claudeにインストールします。
 
 ```bash
