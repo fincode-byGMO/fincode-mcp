@@ -21,7 +21,7 @@ COPY packages/fincode-mcp-core ./packages/fincode-mcp-core
 COPY packages/fincode-mcp-api ./packages/fincode-mcp-api
 
 # ビルド
-RUN pnpm --filter @fincode/mcp-api run build:prd
+RUN pnpm build:bundle:prd
 
 
 FROM node:22-alpine AS release
