@@ -1,0 +1,8 @@
+src
+src/*
+.dxtignore
+biome.json
+esbuild.config.js
+tsconfig.json
+tsconfig.prd.json
+*.dxt
